@@ -1,0 +1,25 @@
+
+<div class="login__container" >
+  <mat-card class="card__container">
+    <mat-card-title class="card__login">Login</mat-card-title>
+    <div class="card__image">
+      <i class="fa fa-user fa-7x"></i>
+    </div>
+    <form>
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Id" autocomplete="off" [(ngModel)]="data.user" name="id">
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Contraseña" autocomplete="off" [(ngModel)]="data.pwd" name="password">
+      </mat-form-field>
+      <mat-card-actions class="btnSend">
+
+        <button (click)="signup()" class="btn btn-success">Ingresar</button>
+
+      </mat-card-actions>
+    </form>
+
+  </mat-card>
+</div>

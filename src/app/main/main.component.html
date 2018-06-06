@@ -1,0 +1,164 @@
+<div class="main_container" >
+  <div class="main_ping__container">
+    <div class="title_ping">
+      <p class="main__title"> Estado de los equipos / servicios</p>
+      <!--<i class="fa fa-sync-alt fa-1x" (click)="reoladtGetDescripcionPing()"></i>-->
+    </div>
+
+    <div class="progress__loading" *ngIf="!progressState">
+      <img src="../../assets/loading.gif" class="progress__gif" alt="">Cargando
+    </div>
+
+      <div class="main_ping__semaforo">
+        <div class="main_ping__rojo" *ngIf="progressState  && tRojo != 0">
+          <label for="rojo" class="rojo_main__container " >
+            <i class="fa fa-exclamation-triangle fa-2x"></i>
+            <span>Estado: Pésimo</span>
+            <i class="fa fa-plus fa-1x"></i>
+         </label>
+
+          <input type="radio" name="chk"  id="rojo" checked>
+          <div class="main__items rojo_items" >
+            <ul *ngIf="listRojo" >
+              <li *ngFor="let ro of listRojo" (click)="getId(ro.id)" title="{{ro.val}}"><img  class="icon_image" src="../../assets/imagenes/{{ro.img}}.png" alt="">{{ro.Descripcion}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="main_ping__ambar"  *ngIf="progressState && tAmbar != 0">
+          <label for="ambar" class="ambar_main__container">
+            <i class="fa fa-exclamation fa-2x"></i>
+            <span>Estado: Regular, Malo</span>
+            <i class="fa fa-plus fa-1x "></i>
+          </label>
+          <input type="radio" name="chk" id="ambar" >
+          <div class="main__items ambar_items" >
+            <ul   *ngIf="listAmbar">
+              <li *ngFor="let am of listAmbar" (click)="getId(am.id)" title="{{am.val}}"><img class="icon_image"  src="../../assets/imagenes/{{am.img}}.png" alt="">{{am.Descripcion}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="main_ping__verde" *ngIf="progressState && tVerde != 0">
+          <label for="verde" class="verde_main__container">
+            <i class="fa fa-check fa-2x"></i>
+            <span>Estado: Excelente, Bueno</span>
+            <i class="fa fa-plus fa-1x "></i>
+          </label>
+          <input type="radio" name="chk" id="verde">
+          <div class="main__items verde_items" >
+            <ul *ngIf="listVerde" >
+              <li  *ngFor="let ver of listVerde" (click)="getId(ver.id)" title="{{ver.val}}"><img class="icon_image"  src="../../assets/imagenes/{{ver.img}}.png" alt="">{{ver.Descripcion}}</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+  </div>
+  <div class="right__container">
+    <div class="main_carpetas__container">
+      <div class="title_ping">
+        <p class="main__title"> Estado de sincronización de carpetas</p>
+        <!--<i class="fa fa-sync-alt fa-1x" (click)="reoladtGetDescripcionCarpetas()"></i>-->
+      </div>
+
+      <div class="progress__loading__carpeta"  *ngIf="!progressCarpeta" >
+        <img src="../../assets/loading.gif" class="progress__gif" alt="">Cargando
+      </div>
+        <div class="carpetas_container__state">
+
+          <div class="carpeta_container__item carpetas_atender" *ngIf="progressCarpeta && CRojo != 0" >
+            <label for="chkAtender" class="main_carpeta main_carpeta__rojo">
+              <i class="fa fa-exclamation-triangle fa-1x"></i>
+              <span>Estado: Atender</span>
+              <i class="fa fa-plus fa-1x "></i>
+            </label>
+
+
+          </div>
+
+          <div class="carpeta_container__item carpetas_tolerable" *ngIf="progressCarpeta && CAmbar != 0">
+            <label for="chkTolerable" class="main_carpeta main_carpeta__ambar">
+              <i class="fa fa-exclamation fa-1x"></i>
+              <span>Estado: Tolerable</span>
+              <i class="fa fa-plus fa-1x "></i>
+            </label>
+
+
+          </div>
+
+
+          <div class="carpeta_container__item carpetas__sincronizado" *ngIf="progressCarpeta && CVerde != 0" >
+            <label for="chkSincronizado" class="main_carpeta main_carpeta__verde">
+              <i class="fa fa-check fa-1x"></i>
+              <span>Estado: Sincronizado</span>
+              <i class="fa fa-plus fa-1x "></i>
+            </label>
+          </div>
+
+
+
+
+        </div>
+      <div class="main__items_data">
+        <input type="radio" [checked]="desplegateRojo" name="rCarpeta" id="chkAtender">
+        <div class="main__items_carpetas ctnRed" >
+        <ul *ngIf="CLRojo" >
+        <li *ngFor="let ro of CLRojo"  title="{{ro.title}}"><img src="../../assets/imagenes/GEARS.png" class="icon_image" alt="">{{ro.route}}</li>
+        </ul>
+        </div>
+
+        <input type="radio"  [checked]="desplegateAmbar && !desplegateRojo"  name="rCarpeta"  id="chkTolerable">
+        <div class="main__items_carpetas ctnAmbar" >
+
+        <ul *ngIf="CLAmbar" >
+        <li *ngFor="let am of CLAmbar"  title="{{am.title}}" ><img src="../../assets/imagenes/GEARS.png"  class="icon_image" alt="">{{am.route}}</li>
+        </ul>
+        </div>
+        <input type="radio" [checked]="desplegateVerde && !desplegateAmbar && !desplegateRojo "  name="rCarpeta" id="chkSincronizado">
+        <div class="main__items_carpetas ctnVerde" >
+
+        <ul *ngIf="CLVerde" >
+        <li *ngFor="let ve of CLVerde"  title="{{ve.title}}"><img src="../../assets/imagenes/GEARS.png" class="icon_image" alt="">&nbsp;{{ve.route}}</li>
+        </ul>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="main_disk__container">
+      <div class="progress__loading_disk" *ngIf="!progressDisco">
+        <p class="main__title">Estado de los discos</p>
+        <img src="../../assets/loading.gif" class="progress__gif" alt="">Cargando
+      </div>
+
+      <div class="container_disk__main" *ngIf="progressDisco">
+      <p class="main__title">Estado de los discos</p>
+      <div class="container__item">
+        <div class="main_disk__item" *ngFor="let disk of infDisk">
+          <div class="main_detalles__container">
+            <div  class="progress-circle"  >
+              <span>{{disk.porcentajeUsado}}%</span>
+            </div>
+
+
+            <div class="container_detalles">
+             <span>Disco:  {{disk.unidad}}</span>
+             <span>d: {{disk.libre}}</span>
+             <span>u: {{disk.usado}}</span>
+             <span>t: {{disk.total}}</span>
+            </div>
+
+           </div>
+
+          </div>
+        </div>
+      <aside class="main_disk__leyenda">
+          <div class="leyenda__utilizado">Utilizado</div>
+          <div class="leyenda__disponible">Disponible</div>
+      </aside>
+      </div>
+
+    </div>
+  </div>
+</div>

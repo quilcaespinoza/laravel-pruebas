@@ -1,0 +1,31 @@
+<div class="general__container" >
+<nav class="menu__container" >
+<div class="menu__title__container">
+<span class="menu__title">iMonitor </span>
+<span class ="fa fa-bars menu__icon" (click)="acordionDisplay()" id="menu__acordion"></span>
+</div>
+<ul class="main__menu">
+<li class="menu__item"><a routerLink="Home" [routerLinkActive]="['active']"   class="menu__link"><i class="fa fa-user"></i>Inicio</a></li>
+
+<li class="menu__item">
+<a class="menu__link" (click)="toggleLink()">
+<i class="fa fa-wrench"></i>Manteniminento<i class="fa fa-plus icon-plus"></i>
+</a>
+<ul class="menu__submenu" id="toggleMenu">
+<li class="menu__item"><a  class="menu__link"><i class="fa fa-user"></i>Subitem 1</a></li>
+<li class="menu__item"><a class="menu__link"><i class="fa fa-user"></i>Subitem 2</a></li>
+<li class="menu__item"> <a class="menu__link"><i class="fa fa-user"></i>Subitem 3</a></li>
+</ul>
+
+</li>
+<li class="menu__item"><a routerLink="/ping" class="menu__link"><i class="fa fa-sitemap"></i>Ping</a></li>
+<li class="menu__item"><a routerLink="/discos" class="menu__link"><i class="fa fa-compact-disc"></i>Discos</a></li>
+<li class="menu__item"><a routerLink="/carpetas" class="menu__link"><i class="fa fa-folder"></i>Carpetas</a></li>
+<li class="menu__item"><a (click)="exitUser()" class="menu__link"><i class="fa fa-user"></i>Salir</a></li>
+
+</ul>
+</nav>
+<div class="components__container">
+  <router-outlet></router-outlet>
+</div>
+</div>

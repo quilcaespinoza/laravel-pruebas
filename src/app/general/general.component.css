@@ -66,10 +66,6 @@ nav ul li ul {
 nav ul li ul li a {
   padding-left: 20px;
 }
-
-
-
-
 .card__image__item {
   width: 100%;
 }
@@ -79,18 +75,12 @@ nav ul li ul li a {
   width: 100%;
 }
 
-
-
 /*************************OTROS*****************************/
 .components__container {
   position: absolute;
   width: 90%;
   height: calc(100 - 20px);
-
   margin-top: 10px;
-  /*margin-right: auto;*/
-  /*margin: auto;*/
-  /*border: 1px solid rgba(0,0,0,.5);*/
   border-radius: 5px
 
 }
@@ -198,48 +188,26 @@ a {
   .showMenu {
     right: 0;
   }
-}
-/*LOGIN STYLE*/
-
-.login__container {
-
-  width: 100%;
-  height: 100vh;
-}
-.card__login {
-  background: #28A745;
-  text-align: center;
-  color: white;
-  border-radius: 5px;
-}
-.card__container {
-  width: 30%;
-  height: 65%;
-  position: absolute;
-
-  margin: auto;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
 
 }
-.card__image {
-  width: 150px;
-  height: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -15px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btnSend {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.example-full-width {
-  width: 100%;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
